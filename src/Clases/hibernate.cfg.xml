@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/School?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">rommel123</property>
+    <mapping resource="Clases/MatriculaGrado.hbm.xml"/>
+    <mapping resource="Clases/Tutor.hbm.xml"/>
+    <mapping resource="Clases/FacturaMensualidad.hbm.xml"/>
+    <mapping resource="Clases/Matricula.hbm.xml"/>
+    <mapping resource="Clases/Jornada.hbm.xml"/>
+    <mapping resource="Clases/Turno.hbm.xml"/>
+    <mapping resource="Clases/Horario.hbm.xml"/>
+    <mapping resource="Clases/Grupo.hbm.xml"/>
+    <mapping resource="Clases/Monto.hbm.xml"/>
+    <mapping resource="Clases/Estudiante.hbm.xml"/>
+    <mapping resource="Clases/PagoMensualidad.hbm.xml"/>
+    <mapping resource="Clases/Mensualidad.hbm.xml"/>
+    <mapping resource="Clases/DocenteMateria.hbm.xml"/>
+    <mapping resource="Clases/Trabajador.hbm.xml"/>
+    <mapping resource="Clases/Rol.hbm.xml"/>
+    <mapping resource="Clases/Materia.hbm.xml"/>
+    <mapping resource="Clases/Nota.hbm.xml"/>
+    <mapping resource="Clases/Grado.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

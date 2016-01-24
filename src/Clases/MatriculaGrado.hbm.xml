@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10-20-2015 07:14:19 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Clases.MatriculaGrado" table="Matricula_Grado" catalog="School" optimistic-lock="version">
+        <id name="idMatriculaGrado" type="int">
+            <column name="IdMatriculaGrado" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="grado" class="Clases.Grado" fetch="select">
+            <column name="IdGrado" not-null="true" />
+        </many-to-one>
+        <many-to-one name="matricula" class="Clases.Matricula" fetch="select">
+            <column name="IdMatricula" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

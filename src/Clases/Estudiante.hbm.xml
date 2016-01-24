@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10-20-2015 07:14:19 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Clases.Estudiante" table="Estudiante" catalog="School" optimistic-lock="version">
+        <id name="idEstudiante" type="java.lang.Integer">
+            <column name="IdEstudiante" />
+            <generator class="identity" />
+        </id>
+        <property name="numeroCarnet" type="string">
+            <column name="NumeroCarnet" length="9" not-null="true" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="30" not-null="true" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="Apellido" length="30" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="Direccion" length="400" not-null="true" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="Telefono" length="30" not-null="true" />
+        </property>
+        <property name="fechaNacimiento" type="date">
+            <column name="FechaNacimiento" length="10" not-null="true" />
+        </property>
+        <property name="lugarDeNacimiento" type="string">
+            <column name="LugarDeNacimiento" length="30" not-null="true" />
+        </property>
+        <property name="genero" type="string">
+            <column name="Genero" length="9" />
+        </property>
+        <property name="tipoSangre" type="int">
+            <column name="TipoSangre" not-null="true" />
+        </property>
+        <property name="tipo" type="boolean">
+            <column name="Tipo" not-null="true" />
+        </property>
+        <property name="estado" type="boolean">
+            <column name="Estado" not-null="true" />
+        </property>
+        <set name="tutors" table="Tutor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdEstudiante" not-null="true" />
+            </key>
+            <one-to-many class="Clases.Tutor" />
+        </set>
+        <set name="notas" table="Nota" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdEstudiante" not-null="true" />
+            </key>
+            <one-to-many class="Clases.Nota" />
+        </set>
+        <set name="matriculas" table="Matricula" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdEstudiante" not-null="true" />
+            </key>
+            <one-to-many class="Clases.Matricula" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10-20-2015 07:14:19 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Clases.Matricula" table="Matricula" catalog="School" optimistic-lock="version">
+        <id name="idMatricula" type="java.lang.Integer">
+            <column name="IdMatricula" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="estudiante" class="Clases.Estudiante" fetch="select">
+            <column name="IdEstudiante" not-null="true" />
+        </many-to-one>
+        <many-to-one name="monto" class="Clases.Monto" fetch="select">
+            <column name="IdMonto" not-null="true" />
+        </many-to-one>
+        <many-to-one name="trabajador" class="Clases.Trabajador" fetch="select">
+            <column name="IdTrabajador" not-null="true" />
+        </many-to-one>
+        <property name="fecha" type="date">
+            <column name="Fecha" length="10" not-null="true" />
+        </property>
+        <property name="turno" type="int">
+            <column name="Turno" not-null="true" />
+        </property>
+        <set name="mensualidads" table="Mensualidad" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdMatricula" not-null="true" />
+            </key>
+            <one-to-many class="Clases.Mensualidad" />
+        </set>
+        <set name="matriculaGrados" table="Matricula_Grado" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdMatricula" not-null="true" />
+            </key>
+            <one-to-many class="Clases.MatriculaGrado" />
+        </set>
+    </class>
+</hibernate-mapping>

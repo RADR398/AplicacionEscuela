@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10-20-2015 07:14:19 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Clases.Jornada" table="Jornada" catalog="School" optimistic-lock="version">
+        <id name="idJornada" type="java.lang.Integer">
+            <column name="IdJornada" />
+            <generator class="identity" />
+        </id>
+        <property name="año" type="int">
+            <column name="Año" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

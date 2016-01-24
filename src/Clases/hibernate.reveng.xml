@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="School"/>
+  <table-filter match-name="Matricula_Grado"/>
+  <table-filter match-name="Horario"/>
+  <table-filter match-name="Grado"/>
+  <table-filter match-name="Jornada"/>
+  <table-filter match-name="Nota"/>
+  <table-filter match-name="Grupo"/>
+  <table-filter match-name="Tutor"/>
+  <table-filter match-name="Trabajador"/>
+  <table-filter match-name="Docente_Materia"/>
+  <table-filter match-name="Matricula"/>
+  <table-filter match-name="Monto"/>
+  <table-filter match-name="PagoMensualidad"/>
+  <table-filter match-name="FacturaMensualidad"/>
+  <table-filter match-name="Turno"/>
+  <table-filter match-name="Estudiante"/>
+  <table-filter match-name="Materia"/>
+  <table-filter match-name="Rol"/>
+  <table-filter match-name="Mensualidad"/>
+</hibernate-reverse-engineering>

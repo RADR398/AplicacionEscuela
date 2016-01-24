@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10-20-2015 07:14:19 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Clases.Grupo" table="Grupo" catalog="School" optimistic-lock="version">
+        <id name="idGrupo" type="java.lang.Integer">
+            <column name="IdGrupo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="grado" class="Clases.Grado" fetch="select">
+            <column name="IdGrado" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="10" not-null="true" />
+        </property>
+        <property name="cupos" type="int">
+            <column name="Cupos" not-null="true" />
+        </property>
+        <set name="horarios" table="Horario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdGrupo" not-null="true" />
+            </key>
+            <one-to-many class="Clases.Horario" />
+        </set>
+    </class>
+</hibernate-mapping>

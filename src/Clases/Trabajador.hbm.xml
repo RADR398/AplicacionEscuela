@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10-20-2015 07:14:19 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Clases.Trabajador" table="Trabajador" catalog="School" optimistic-lock="version">
+        <id name="idTrabajador" type="java.lang.Integer">
+            <column name="IdTrabajador" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="rol" class="Clases.Rol" fetch="select">
+            <column name="IdRol" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="30" not-null="true" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="Apellido" length="30" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="Direccion" length="400" not-null="true" />
+        </property>
+        <property name="numeroDeCedula" type="string">
+            <column name="NumeroDeCedula" length="16" not-null="true" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="Telefono" length="30" not-null="true" />
+        </property>
+        <property name="tipoSangre" type="int">
+            <column name="TipoSangre" not-null="true" />
+        </property>
+        <property name="estadoCivil" type="boolean">
+            <column name="EstadoCivil" not-null="true" />
+        </property>
+        <property name="estado" type="boolean">
+            <column name="Estado" not-null="true" />
+        </property>
+        <set name="facturaMensualidads" table="FacturaMensualidad" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdTrabajador" not-null="true" />
+            </key>
+            <one-to-many class="Clases.FacturaMensualidad" />
+        </set>
+        <set name="docenteMaterias" table="Docente_Materia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdTrabajador" not-null="true" />
+            </key>
+            <one-to-many class="Clases.DocenteMateria" />
+        </set>
+        <set name="notas" table="Nota" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdTrabajador" not-null="true" />
+            </key>
+            <one-to-many class="Clases.Nota" />
+        </set>
+        <set name="matriculas" table="Matricula" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdTrabajador" not-null="true" />
+            </key>
+            <one-to-many class="Clases.Matricula" />
+        </set>
+    </class>
+</hibernate-mapping>
